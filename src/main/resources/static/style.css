@@ -1,0 +1,44 @@
+html {
+}
+
+.form-container{
+    margin: 50px 0 100px 0;
+    padding: 12px 12px 0 12px;
+    box-shadow: 1px 1px 5px 10px #CCCCCC;
+    align-items: center;
+}
+
+.form-input-row{
+    margin: 16px 0 16px 0;
+    padding: 0 5px 0 5px;
+}
+
+.form-button-row{
+    margin: 16px 0 16px 0;
+    padding: 0 5px 0 5px;
+}
+
+.list-header-row{
+    background-color: #f0f0f0;
+    border: 2px azure solid;
+}
+
+.list-data-row:nth-child(odd){
+    background-color: #e7e7e7;
+}
+
+.list-data-row:nth-child(even){
+    background-color: #e0e0e0;
+}
+
+.user-identity{
+    font-style: normal;
+    color: white;
+}
+
+table{
+    border: 1px solid black;
+}
+td{
+    border: 1px solid black;
+}

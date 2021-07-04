@@ -1,7 +1,7 @@
 package com.example.jemcochce.controller;
 
 import com.example.jemcochce.model.Skladnik;
-import com.example.jemcochce.service.SkladnikService;
+import com.example.jemcochce.service.PrzepisService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/skladnik")
 @RequiredArgsConstructor
 public class SkladnikController {
-    private final SkladnikService skladnikService;
+    private final PrzepisService przepisService;
 
     @GetMapping("/add")
     public String addSkladnikForm(Model model){
         Skladnik skladnik = new Skladnik();
-        model.addAttribute("nowy_skladnik", skladnik);
+        model.addAttribute("nowySkladnik", skladnik);
         return "skladnik-add";
     }
 
     @PostMapping("/add")
-    public String addSkladnik(Skladnik skladnik){
-        skladnikService.addSkladnik(skladnik);
+    public String addSkladnik(String skladnik){
+        przepisService.addSkladnik(skladnik);
         return "redirect:/skladnik";
     }
 

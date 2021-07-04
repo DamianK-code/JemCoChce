@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Admin Index Page!</title>
+    <th:block th:replace="fragments :: link-styles" th:remove="tag"/>
+</head>
+<body>
+<th:block th:replace="fragments :: navigator" th:remove="tag"/>
+<main>
+    <div class="container marketing">
+        <h2>Recipies management panel</h2>
+        <ul>
+            <li>
+                <a th:href="@{/recipe/add}">Add recipe</a>
+            </li>
+            <li>
+                <a th:href="@{/ingr/add}">Add ingredient</a>
+            </li>
+        </ul>
+        <hr>
+        <h3>Recipes</h3>
+        <table>
+            <tr th:each="recipe : ${przepisy}">
+                <td th:text="${recipe.id}"></td>
+                <td th:text="${recipe.name}"></td>
+                <td th:text="${recipe.iloscSkladnikow}"></td>
+                <td>
+                    <a th:href="@{/recipe/ingr/add(recipeId=${recipe.id})}">Add ingredient</a>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <h3>Ingredients</h3>
+        <table>
+            <tr th:each="ingr : ${skladniki}">
+                <td th:text="${ingr.id}"></td>
+                <td th:text="${ingr.name}"></td>
+            </tr>
+        </table>
+    </div>
+</main>
+<th:block th:replace="fragments :: scripts" th:remove="tag"/>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Index Page!</title>
+    <th:block th:replace="fragments :: link-styles" th:remove="tag"/>
+</head>
+<body>
+<th:block th:replace="fragments :: navigator" th:remove="tag"/>
+<main>
+    <div class="container marketing">
+        <h2>Authenticated</h2>
+        <div class="row col-12 form-container" th:object="${uzytkownik}">
+            <div class="row col-md-12 form-input-row">
+                <div class="col-md-6">Username:</div>
+                <div class="col-md-6" th:text="*{username}"></div>
+            </div>
+            <div class="row col-md-12 form-input-row">
+                <div class="col-md-6">Roles:</div>
+                <div class="col-md-6" th:text="*{roles}"></div>
+            </div>
+            <div class="row col-md-12 form-input-row">
+                <div class="col-md-6">Non Expired:</div>
+                <div class="col-md-6" th:text="*{accountNonExpired}"></div>
+            </div>
+            <div class="row col-md-12 form-input-row">
+                <div class="col-md-6">Non Locked:</div>
+                <div class="col-md-6" th:text="*{accountNonLocked}"></div>
+            </div>
+            <div class="row col-md-12 form-input-row">
+                <div class="col-md-6">Enabled:</div>
+                <div class="col-md-6" th:text="*{enabled}"></div>
+            </div>
+            <div class="row col-md-12 form-input-row">
+                <div class="col-md-6">Dog Names:</div>
+                <div class="col-md-6" th:text="${favouriteDogNamesList}"></div>
+            </div>
+        </div>
+    </div>
+</main>
+<th:block th:replace="fragments :: scripts" th:remove="tag"/>
+</body>
+</html>

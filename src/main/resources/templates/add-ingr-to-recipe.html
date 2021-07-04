@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Ingredient Page</title>
+    <th:block th:replace="fragments :: link-styles" th:remove="tag"/>
+</head>
+<body>
+<th:block th:replace="fragments :: navigator" th:remove="tag"/>
+<main>
+    <div class="container marketing">
+        <hr>
+        <h2>Add ingredient to recipe:</h2>
+        <form th:action="@{/recipe/ingr/add}" method="post">
+            <div class="row col-12 form-container">
+                <div class="row col-md-12 form-input-row">
+                    <div class="col-md-6">
+                        <label for="przepis_id">Recipe id:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" readonly type="text" id="przepis_id" name="przepis_id" th:value="${id_przepisu}">
+                    </div>
+                </div>
+                <div class="row col-md-12 form-input-row">
+                    <div class="col-md-6">
+                        <label for="przepis_id">Skladnik:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control" name="skladnik_id">
+                            <option th:each="skladnik : ${wszystkie_dostepne_skladniki}"
+                                    th:text="${skladnik.name}"
+                                    th:value="${skladnik.id}">
+
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row col-md-12 form-input-row">
+                    <div class="col-md-6">
+                        <label for="ilosc">Ilość:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="0.01" id="ilosc" th:name="ilosc">
+                    </div>
+                </div>
+
+                <div class="row col-md-12">
+                    <button type="submit" class="btn btn-primary offset-3 col-md-6">Submit</button>
+                </div>
+            </div>
+        </form>
+        </hr>
+    </div>
+</main>
+<th:block th:replace="fragments :: scripts" th:remove="tag"/>
+</body>
+</html>
