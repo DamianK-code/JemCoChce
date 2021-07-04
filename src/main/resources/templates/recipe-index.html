@@ -9,33 +9,33 @@
 <th:block th:replace="fragments :: navigator" th:remove="tag"/>
 <main>
     <div class="container marketing">
-        <h2>Recipies management panel</h2>
+        <h2>Przepisy management panel</h2>
         <ul>
             <li>
-                <a th:href="@{/recipe/add}">Add recipe</a>
+                <a th:href="@{/przepis/add}">Dodaj przepis</a>
             </li>
             <li>
-                <a th:href="@{/ingr/add}">Add ingredient</a>
+                <a th:href="@{/skladnik/add}">Dodaj składnik</a>
             </li>
         </ul>
         <hr>
-        <h3>Recipes</h3>
+        <h3>Przepisy: </h3>
         <table>
-            <tr th:each="recipe : ${przepisy}">
-                <td th:text="${recipe.id}"></td>
-                <td th:text="${recipe.name}"></td>
-                <td th:text="${recipe.iloscSkladnikow}"></td>
+            <tr th:each="przepis : ${przepisy}">
+                <td th:text="${przepis.id}"></td>
+                <td th:text="${przepis.name}"></td>
+                <td th:text="${przepis.iloscSkladnikow}"></td>
                 <td>
-                    <a th:href="@{/recipe/ingr/add(recipeId=${recipe.id})}">Add ingredient</a>
+                    <a th:href="@{/przepis/skladnik/add(przepisId=${przepis.id})}">Dodaj składnik</a>
                 </td>
             </tr>
         </table>
         <hr>
-        <h3>Ingredients</h3>
+        <h3>Składniki: </h3>
         <table>
-            <tr th:each="ingr : ${skladniki}">
-                <td th:text="${ingr.id}"></td>
-                <td th:text="${ingr.name}"></td>
+            <tr th:each="skladnik : ${skladniki}">
+                <td th:text="${skladnik.id}"></td>
+                <td th:text="${skladnik.nazwa}"></td>
             </tr>
         </table>
     </div>

@@ -10,19 +10,19 @@
 <main>
     <div class="container marketing">
         <hr>
-        <h2>Add recipe:</h2>
-        <form th:action="@{/recipe/add}" method="post">
+        <h2>Dodaj Przepis:</h2>
+        <form th:action="@{/przepis/add}" method="post">
             <div class="row col-12 form-container">
                 <div class="row col-md-12 form-input-row">
                     <div class="col-md-6">
-                        <label for="name">Name:</label>
+                        <label for="name">Dodawany przepis: </label>
                     </div>
                     <div class="col-md-6">
                         <input class="form-control" type="text" id="name" th:name="name" th:value="${name}">
                     </div>
                 </div>
                 <div class="row col-md-12">
-                    <button type="submit" class="btn btn-primary offset-3 col-md-6">Submit</button>
+                    <button type="submit" class="btn btn-primary offset-3 col-md-6">Dodaj</button>
                 </div>
             </div>
         </form>

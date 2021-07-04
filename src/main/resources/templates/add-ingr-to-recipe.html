@@ -11,11 +11,11 @@
     <div class="container marketing">
         <hr>
         <h2>Add ingredient to recipe:</h2>
-        <form th:action="@{/recipe/ingr/add}" method="post">
+        <form th:action="@{/przepis/skladnik/add}" method="post">
             <div class="row col-12 form-container">
                 <div class="row col-md-12 form-input-row">
                     <div class="col-md-6">
-                        <label for="przepis_id">Recipe id:</label>
+                        <label for="przepis_id">Przepis id:</label>
                     </div>
                     <div class="col-md-6">
                         <input class="form-control" readonly type="text" id="przepis_id" name="przepis_id" th:value="${id_przepisu}">
@@ -28,7 +28,7 @@
                     <div class="col-md-6">
                         <select class="form-control" name="skladnik_id">
                             <option th:each="skladnik : ${wszystkie_dostepne_skladniki}"
-                                    th:text="${skladnik.name}"
+                                    th:text="${skladnik.nazwa}"
                                     th:value="${skladnik.id}">
 
                             </option>

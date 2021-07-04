@@ -47,23 +47,24 @@ public class PrzepisController {
     }
 
     @PostMapping("przepis/add")
-    public String submitPrzepisForm(String name, Principal principal){
-        if (principal instanceof UsernamePasswordAuthenticationToken){
+    public String submitPrzepisForm(String name, Principal principal) {
+        if (principal instanceof UsernamePasswordAuthenticationToken) {
             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = (UsernamePasswordAuthenticationToken) principal;
-            if (usernamePasswordAuthenticationToken.getPrincipal() instanceof Account){
-                Account account =(Account) usernamePasswordAuthenticationToken.getPrincipal();
+            if (usernamePasswordAuthenticationToken.getPrincipal() instanceof Account) {
+                Account account = (Account) usernamePasswordAuthenticationToken.getPrincipal();
                 przepisService.addPrzepis(name, account);
             }
         }
         return "redirect:/przepis";
     }
 
-    @GetMapping ("/skladnik/add")
-    public String getSkladnikForm(){
+    @GetMapping("/skladnik/add")
+    public String getSkladnikForm() {
         return "add-ingredient";
     }
-    @PostMapping ("/skladnik/add")
-    public String submitSkladnikForm(String name){
+
+    @PostMapping("/skladnik/add")
+    public String submitSkladnikForm(String name) {
         przepisService.addSkladnik(name);
         return "redirect:/skladnik";
     }
